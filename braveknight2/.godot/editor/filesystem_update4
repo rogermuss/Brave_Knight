@@ -4,3 +4,4 @@ res://Scenes/Bomb/bomb.gd
 res://Scenes/Player/player.tscn
 res://Scenes/Bomb/bomb.tscn
 res://Scenes/Goblin/Goblin.tscn
+res://Scenes/Goblin/goblin.gd

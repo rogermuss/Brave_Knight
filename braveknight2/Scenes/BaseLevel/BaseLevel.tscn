@@ -575,6 +575,7 @@ scale = Vector2(2, 2)
 [node name="Goblin" parent="." instance=ExtResource("6_n1wa4")]
 position = Vector2(1456, 344)
 scale = Vector2(2.1, 2.1)
+damage = 0
 movement_speed = 3000
 
 [node name="Goblin2" parent="." instance=ExtResource("6_n1wa4")]
@@ -583,7 +584,7 @@ scale = Vector2(2.1, 2.1)
 movement_speed = 3000
 
 [node name="Goblin3" parent="." instance=ExtResource("6_n1wa4")]
-position = Vector2(688, 176)
+position = Vector2(897, 476)
 scale = Vector2(2.1, 2.1)
 movement_speed = 3000
 

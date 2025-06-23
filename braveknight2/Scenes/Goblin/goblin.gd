@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 		ENEMY_STATES.LOOKING_PLAYER:
 			if not patrol_timer.is_stopped():
 				patrol_timer.stop()
-			velocity = Vector2.ZERO
 			if player_ref.global_position.x > global_position.x:
 				anim_sprite2d.flip_h = false
 			else:
