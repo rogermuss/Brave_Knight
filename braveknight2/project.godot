@@ -12,14 +12,15 @@ config_version=5
 
 config/name="BraveKnightSemana3"
 config/description="hola"
-run/main_scene="uid://bu82vt6e2yccr"
+run/main_scene="uid://dolpq85jtk431"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/image="uid://mxwcm3b8sbar"
 config/icon="uid://dbpqsh5cnx26g"
 
 [autoload]
 
-ObjectMaker="*res://ObjectMaker.gd"
+GameManager="*res://Singletons/GameManager.gd"
+ObjectMaker="*res://Singletons/ObjectMaker.gd"
 
 [display]
 
