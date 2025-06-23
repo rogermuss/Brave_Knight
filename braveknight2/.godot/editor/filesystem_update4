@@ -1,3 +1,6 @@
 res://Scenes/BaseLevel/BaseLevel.tscn
-res://Singletons/GameManager.gd
 res://Scenes/main_menu/Menu.tscn
+res://Scenes/Bomb/bomb.gd
+res://Scenes/Player/player.tscn
+res://Scenes/Bomb/bomb.tscn
+res://Scenes/Goblin/Goblin.tscn

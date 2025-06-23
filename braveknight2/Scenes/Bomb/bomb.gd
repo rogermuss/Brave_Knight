@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 250.0
+@export var speed = 125.0
 @export var throw_speed = -200.0
 @export var bomb_gravity = 400.0
 @onready var explode_timer = $ExplodeTimer

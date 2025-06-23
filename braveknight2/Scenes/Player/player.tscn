@@ -361,6 +361,7 @@ shape = SubResource("RectangleShape2D_1htnp")
 [node name="FloorDetector" type="RayCast2D" parent="."]
 position = Vector2(0, 16)
 target_position = Vector2(0, 25)
+collision_mask = 33
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 visible = false
