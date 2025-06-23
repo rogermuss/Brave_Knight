@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bu82vt6e2yccr"]
+[gd_scene load_steps=12 format=4 uid="uid://bu82vt6e2yccr"]
 
 [ext_resource type="PackedScene" uid="uid://bna4otrsp1jn8" path="res://Scenes/Background/Background.tscn" id="1_3ok8t"]
 [ext_resource type="PackedScene" uid="uid://bwwmacs6k1qpn" path="res://Scenes/Player/player.tscn" id="1_4ea85"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdnvoy0vmsr76" path="res://Scenes/Bat/bat.tscn" id="3_1wu10"]
 [ext_resource type="AudioStream" uid="uid://dy7n33ldb6qxi" path="res://Assets/Background/Super Mario Brothers 1 Music - Main Theme & Overworld.mp3" id="5_e4llg"]
 [ext_resource type="PackedScene" uid="uid://bechy2ph5uiyn" path="res://Scenes/Goblin/Goblin.tscn" id="6_n1wa4"]
+[ext_resource type="Script" uid="uid://b0ylj5u6tais6" path="res://Scenes/BaseLevel/area_final.gd" id="7_4tuel"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1wu10"]
 vertices = PackedVector2Array(12086, 522, 12086, 525.609, 12042, 525.531, 12070, 522, 12042, 522, 12058, 522, 12070, 474, 12058, 474, 11014, 522, 11014, 523.609, 10970, 523.523, 10998, 522, 10970, 522, 10986, 522, 10998, 474, 10986, 474, 9222, 518, 9066, 518, 9066, 506, 9098, 506, 9222, 458, 9130, 490, 9098, 490, 9130, 474, 9162, 474, 9162, 458, 9430, 474, 9462, 474, 9462, 490, 9370, 518, 9494, 490, 9494, 506, 9526, 506, 9526, 518, 9370, 458, 9430, 458, 9974, 518, 9722, 518, 9722, 506, 9754, 506, 9974, 410, 9786, 490, 9754, 490, 9786, 474, 9818, 474, 9818, 458, 9850, 458, 9850, 442, 9882, 442, 9882, 426, 9914, 426, 9914, 410, 10326, 442, 10358, 442, 10358, 458, 10298, 518, 10390, 458, 10390, 474, 10422, 474, 10422, 490, 10454, 490, 10454, 506, 10486, 506, 10486, 518, 10298, 426, 10326, 426, 2422, 507.523, 2410, 507.5, 2410, 442, 2422, 442, 1462, 505.719, 1450, 505.703, 1450, 426, 1462, 426, 1158, 505.156, 1146, 505.133, 1146, 458, 1158, 458, 9830, 406, 9798, 406, 6074, 394, 6454, 394, 9862, 374, 8730, 358, 6058, 266, 8534, 250, 8762, 250, 9894, 358, 9894, 374, 8314, 250, 8070, 250, 1194, 422, 1110, 422, 474, 410, 582, 410, 8762, 214, 8534, 214, 7226, 186, 7226, 150, 12262.3, 23.9922, 12106, 438, 12022, 438, 11450, 410, 11450, 374, 11222, 374, 12278.4, 518, 12106, 518, 810, 374, 730, 266, 730, 230, 4550, 230, 4550, 266, 1846, 358, 8070, 214, 6058, 230, 7142, 186, 8730, 394, 9830, 390, 2374, 406, 2374, 507.43, 1930, 506, 1930, 358, 10246, 374, 10246, 522.172, 10042, 521.781, 10042, 518, 1414, 390, 1414, 505.633, 1194, 505.219, 1110, 505.07, 14.0703, 503.008, 390, 410, 17.9219, 18, 390, 374, 8406, 518, 8406, 518.719, 8362, 518.641, 8362, 518, 9142, 406, 9142, 422, 9110, 422, 4458, 410, 5990, 394, 8314, 214, 5174, 230, 5174, 266, 4842, 266, 4842, 230, 11222, 410, 12022, 518, 11034, 518, 11034, 438, 10950, 438, 10950, 518, 10586, 518, 10586, 502, 10570, 502, 10570, 486, 10538, 486, 10538, 470, 10506, 470, 10506, 454, 10474, 454, 10474, 438, 10442, 438, 10442, 422, 10410, 422, 10410, 406, 10378, 406, 10378, 390, 10346, 390, 10346, 374, 10314, 374, 10314, 358, 10262, 358, 10262, 374, 10026, 518, 10026, 374, 10010, 374, 10010, 358, 9862, 390, 8566, 358, 8566, 394, 7994, 394, 7994, 358, 9798, 422, 9766, 422, 9766, 438, 9734, 438, 9734, 454, 9702, 454, 9702, 470, 9670, 470, 9670, 486, 9654, 486, 9654, 518, 9594, 518, 9594, 486, 9578, 486, 9578, 470, 9546, 470, 9546, 454, 9514, 454, 9514, 438, 9482, 438, 9482, 422, 9450, 422, 9450, 406, 9334, 406, 9334, 422, 9318, 422, 9318, 518, 9274, 518, 9274, 422, 9258, 422, 9258, 406, 9110, 438, 9078, 438, 9078, 454, 9046, 454, 9046, 470, 9014, 470, 9014, 486, 8982, 486, 8982, 518, 8015.97, 518, 2458, 507.594, 4294, 410, 2458, 406, 4294, 374, 1882, 506, 1882, 394, 1894, 394, 1894, 506, 810, 410, 7142, 150, 474, 374, 646, 230, 646, 266, 4458, 374, 5990, 358, 7910, 358, 582, 374, 7466, 358, 1498, 390, 7910, 394, 7466, 394, 7382, 358, 7382, 394, 7226, 394, 7226, 358, 7142, 358, 7142, 394, 6986, 394, 6986, 358, 6902, 358, 6902, 394, 6538, 394, 6538, 358, 6454, 358, 6074, 358, 1846, 506, 1498, 505.789)
@@ -496,6 +497,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_1wu10")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsyde"]
+size = Vector2(119, 150)
+
 [node name="BaseLevel" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_3ok8t")]
@@ -508,7 +512,7 @@ tile_map_data = PackedByteArray("AAAAACgAAQAIAAMAAAABACgAAQAIAAMAAAACACgAAQAIAAM
 tile_set = SubResource("TileSet_3ok8t")
 
 [node name="Player" parent="." instance=ExtResource("1_4ea85")]
-position = Vector2(100, 370)
+position = Vector2(13046, 1)
 scale = Vector2(3, 3)
 jump_speed = 25000.0
 
@@ -612,3 +616,14 @@ movement_speed = 3000
 position = Vector2(11344, 314)
 scale = Vector2(2.1, 2.1)
 movement_speed = 3000
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_4tuel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(13895.5, 436)
+shape = SubResource("RectangleShape2D_bsyde")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

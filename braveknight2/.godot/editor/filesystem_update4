@@ -1,3 +1,10 @@
 res://Scenes/BaseLevel/BaseLevel.tscn
-res://Singletons/GameManager.gd
+res://Scenes/Goblin/Goblin.tscn
+res://Scenes/Player/player.tscn
+res://Scenes/EndScreen/End_Screen.tscn
 res://Scenes/main_menu/Menu.tscn
+res://Scenes/EndScreen/end_screen.gd
+res://Scenes/Player/player.gd
+res://Scenes/BaseLevel/area_final.gd
+res://font_label/medieval.tres
+res://Singletons/GameManager.gd

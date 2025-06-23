@@ -140,3 +140,7 @@ func reset_states():
 
 func _on_invincible_timer_timeout() -> void:
 	reset_states()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

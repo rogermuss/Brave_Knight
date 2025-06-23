@@ -335,10 +335,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1htnp"]
-size = Vector2(16, 32)
+size = Vector2(16, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlvik"]
-size = Vector2(25, 38)
+size = Vector2(44.5, 38)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jlvik"]
 height = 44.0
@@ -354,13 +354,12 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 19)
+position = Vector2(0, 21.5)
 shape = SubResource("RectangleShape2D_1htnp")
 
 [node name="FloorDetector" type="RayCast2D" parent="."]
 position = Vector2(0, 16)
-target_position = Vector2(0, 25)
+target_position = Vector2(0, 27)
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 visible = false
@@ -371,7 +370,7 @@ monitorable = false
 
 [node name="CollisionHitbox" type="CollisionShape2D" parent="AttackHitbox"]
 unique_name_in_owner = true
-position = Vector2(44, 21)
+position = Vector2(34.25, 21)
 shape = SubResource("RectangleShape2D_jlvik")
 debug_color = Color(0.808637, 0.117218, 6.73831e-07, 0.42)
 
