@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://y86n3fw8j2j6"]
+
+[ext_resource type="FontFile" uid="uid://bq7ema65ugnoc" path="res://Assets/fonts/AlbertText-Bold.ttf" id="1_jqmqu"]
+
+[resource]
+font = ExtResource("1_jqmqu")
+font_size = 40
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)

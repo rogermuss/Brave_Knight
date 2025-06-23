@@ -3,6 +3,7 @@ var score = 0
 var game_over = false
 var game_escene = preload("res://Scenes/BaseLevel/BaseLevel.tscn")
 var menu_scene = preload("res://scenes/main_menu/Menu.tscn")
+var end_scene = preload("res://Scenes/EndScreen/End_Screen.tscn")
 #var sublevel_scene = preload("res://scenes/sub_level/sub_level.tscn")
 
 func _ready():
@@ -19,4 +20,6 @@ func on_exit():
 	
 #func on_entering_sublevel():
 	#get_tree().change_scene_to_packed(sublevel_scene)
-	
+
+func on_end():
+	get_tree().change_scene_to_packed(end_scene)

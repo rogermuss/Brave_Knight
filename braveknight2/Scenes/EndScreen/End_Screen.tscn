@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://cglf83oq6vjy7"]
+
+[ext_resource type="Texture2D" uid="uid://mxwcm3b8sbar" path="res://Assets/Background/Background_0.png" id="1_68e4h"]
+[ext_resource type="Script" uid="uid://dmlgqe5a0w1ki" path="res://Scenes/EndScreen/end_screen.gd" id="1_588ns"]
+[ext_resource type="Texture2D" uid="uid://cwhjtxs45emfu" path="res://Assets/UI/20240707dragonHeaderA.png" id="3_nryvr"]
+[ext_resource type="FontFile" uid="uid://bq7ema65ugnoc" path="res://Assets/fonts/AlbertText-Bold.ttf" id="4_y8gm3"]
+[ext_resource type="Texture2D" uid="uid://ced3yfre1jj1m" path="res://Assets/UI/20240707dragonHeaderB.png" id="5_y3r31"]
+[ext_resource type="Texture2D" uid="uid://d31ryxtcooyay" path="res://Assets/UI/pressed_button.png" id="6_7ln5v"]
+[ext_resource type="Texture2D" uid="uid://fm073wp0vp0p" path="res://Assets/UI/hrove_button.png" id="7_mm3ve"]
+[ext_resource type="LabelSettings" uid="uid://y86n3fw8j2j6" path="res://font_label/medieval_buttons.tres" id="8_cwioe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_whdxy"]
+font = ExtResource("4_y8gm3")
+font_size = 108
+outline_size = 20
+outline_color = Color(0.0390674, 0.0111499, 0.32671, 1)
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_588ns")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 800.84
+offset_bottom = 601.55
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(0.555, 0)
+layout_mode = 2
+size_flags_horizontal = 9
+texture = ExtResource("1_68e4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(487.525, 220.66)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_nryvr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 14.0
+offset_right = 0.204956
+offset_bottom = -60.985
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fin"
+label_settings = SubResource("LabelSettings_whdxy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250.05, 104.43)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_y3r31")
+texture_pressed = ExtResource("6_7ln5v")
+texture_hover = ExtResource("7_mm3ve")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+label_settings = ExtResource("8_cwioe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 104)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+texture_normal = ExtResource("5_y3r31")
+texture_pressed = ExtResource("6_7ln5v")
+texture_hover = ExtResource("7_mm3ve")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/RetryButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+label_settings = ExtResource("8_cwioe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_button_up"]
