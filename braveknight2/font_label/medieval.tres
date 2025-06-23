@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dce7fb14idi2v"]
+
+[ext_resource type="FontFile" uid="uid://bq7ema65ugnoc" path="res://assets/fonts/AlbertText-Bold.ttf" id="1_p1hfs"]
+
+[resource]
+font = ExtResource("1_p1hfs")
+font_size = 118
+font_color = Color(0.529067, 0.529067, 0.529067, 1)
+outline_size = 20
+outline_color = Color(0.0390674, 0.0111499, 0.32671, 1)

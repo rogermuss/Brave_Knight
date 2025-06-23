@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c6ee15jke8hb4"]
+
+[ext_resource type="FontFile" uid="uid://ho2rktv0kw3y" path="res://assets/fonts/Clash.otf" id="1_537om"]
+
+[resource]
+font = ExtResource("1_537om")
+font_size = 48
+font_color = Color(0.326271, 0.614055, 0.565862, 1)

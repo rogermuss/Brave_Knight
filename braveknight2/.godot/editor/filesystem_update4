@@ -1,0 +1,3 @@
+res://Scenes/BaseLevel/BaseLevel.tscn
+res://Singletons/GameManager.gd
+res://Scenes/main_menu/Menu.tscn
