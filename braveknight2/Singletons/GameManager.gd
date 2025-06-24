@@ -1,5 +1,6 @@
 extends Node
 var hp = 3
+var lives = 3
 var game_over = false
 var game_escene = preload("res://Scenes/BaseLevel/BaseLevel.tscn")
 var menu_scene = preload("res://scenes/main_menu/Menu.tscn")
@@ -21,6 +22,15 @@ func lower_hp():
 func reset_hp():
 	hp = 3
 	SignalManager.on_health_update.emit(hp)
+
+func lower_lives():
+	lives -= 1
+	print("Vidas actuales:", lives)
+	SignalManager.on_lives_update.emit(lives)
+
+func reset_lives():
+	lives = 3
+	SignalManager.on_lives_update.emit(lives)
 
 func on_exit():
 	get_tree().quit()

@@ -49,7 +49,7 @@ func _on_detection_area_exited(area: Area2D) -> void:
 	
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	hp -= player_ref.strength
-	hitbox.monitoring = false
+	hitbox.set_deferred("monitoring", false)
 	if hp <= 0:
 		velocity = Vector2.ZERO
 		current_state = ENEMY_STATES.DEATH

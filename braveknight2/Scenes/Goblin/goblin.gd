@@ -53,7 +53,7 @@ func _on_detection__area_entered(area: Area2D) -> void:
 	current_state = ENEMY_STATES.LOOKING_PLAYER
 	if LookTimer.is_stopped():
 		LookTimer.start()
-	print("Im looking at the player!")
+	#print("Im looking at the player!")
 	
 
 
@@ -70,7 +70,7 @@ func _on_detection_area_exited(area: Area2D) -> void:
 		WaitTimer.stop()
 
 func _on_look_timer_timeout() -> void:
-	print("I'm gonna attack you!")
+	#print("Voy a atacar")
 	anim_sprite2d.play("Attack")
 	WaitTimer.start()
 
@@ -84,18 +84,18 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		attack()
 		anim_sprite2d.play("Idle")
 	if anim_sprite2d.animation == "Death":
-		hitbox.monitorable = false
-		hitbox.monitoring = false
+		hitbox.set_deferred("monitorable", false)
+		hitbox.set_deferred("monitoring", false)
 		queue_free()
 
 func _on_wait_time_timeout() -> void:
-	print("Wait is Over!")
+	#print("Wait is Over!")
 	anim_sprite2d.play("Attack")
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	hp -= player_ref.strength
-	hitbox.monitoring = false
+	hitbox.set_deferred("monitoring", false)
 	if hp <= 0:
 		current_state = ENEMY_STATES.DEATH
 		anim_sprite2d.play("Death")

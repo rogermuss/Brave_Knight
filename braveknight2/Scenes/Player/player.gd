@@ -18,6 +18,7 @@ var is_grounded = false
 var is_attacking = false
 var direction: Vector2 
 var hp : int = 3
+var lives: int = 3
 
 var hit_speed: float = 500.0
 
@@ -30,12 +31,13 @@ func _ready():
 	attack_area.monitoring = false
 
 func _physics_process(delta: float) -> void:
-	get_input(delta)
-	if(not is_attacking):
-		if(current_state != PLAYER_STATE.HIT):
-			calculate_state()
-		else: 
-			velocity = direction * hit_speed * delta
+	if current_state != PLAYER_STATE.DEATH:
+		get_input(delta)
+		if(not is_attacking):
+			if(current_state != PLAYER_STATE.HIT):
+				calculate_state()
+			else: 
+				velocity = direction * hit_speed * delta
 	check_is_on_ground()
 	apply_gravity(delta)
 	move_and_slide()
@@ -50,6 +52,8 @@ func apply_gravity(delta):
 	velocity.y += gravity * delta
 
 func calculate_state():
+	if current_state == PLAYER_STATE.DEATH:
+		return
 	if(is_grounded):
 		if abs(velocity.x) > 0:
 			set_state(PLAYER_STATE.RUN)
@@ -85,9 +89,9 @@ func flip_player():
 	attack_collision.position.x *= -1
 
 func get_input(delta): 
-	if current_state == PLAYER_STATE.HIT:
-		return
 	if current_state == PLAYER_STATE.DEATH:
+		return
+	if current_state == PLAYER_STATE.HIT:
 		return
 	if(Input.is_action_pressed("move_left")):
 		velocity.x = -movement_speed * delta
@@ -116,10 +120,20 @@ func attack():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if(anim_sprite2d.animation == "Attack"):
 		reset_states()
+	elif (anim_sprite2d.animation == "Death"):
+		var current_scene = get_tree().current_scene
+		if current_scene and is_on_floor():
+			GameManager.lower_lives()
+			GameManager.reset_hp()
+			if GameManager.lives <= 0:
+				GameManager.reset_lives()
+				get_tree().change_scene_to_file("res://Scenes/main_menu/Menu.tscn")
+			else:
+				get_tree().reload_current_scene()
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	call_deferred("reset_states")
-	get_hit(velocity)
+	if current_state != PLAYER_STATE.DEATH:
+		get_hit(velocity)
 
 func get_hit(source_velocity: Vector2):
 	if current_state == PLAYER_STATE.HIT:
@@ -130,9 +144,10 @@ func get_hit(source_velocity: Vector2):
 	velocity = direction * hit_speed
 	set_state(PLAYER_STATE.HIT)
 	GameManager.lower_hp()
+	hp -= 1
 	if hp <= 0:
-		set_state(PLAYER_STATE.DEATH)
-		print("you're dead")
+		print("rip")
+		die()
 		return
 	invincible_timer.start()
 	var tween = create_tween()
@@ -142,6 +157,10 @@ func get_hit(source_velocity: Vector2):
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,0,0,1),0.25)
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,1,1,0),0.25)
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,1,1,1),0.25)
+
+func die():
+	set_state(PLAYER_STATE.DEATH)
+	velocity.x = 0
 
 func reset_states():
 	set_state(PLAYER_STATE.IDLE)
