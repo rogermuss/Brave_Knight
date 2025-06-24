@@ -122,7 +122,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		reset_states()
 	elif (anim_sprite2d.animation == "Death"):
 		var current_scene = get_tree().current_scene
-		if current_scene and is_on_floor():
+		if current_scene:
 			GameManager.lower_lives()
 			GameManager.reset_hp()
 			if GameManager.lives <= 0:

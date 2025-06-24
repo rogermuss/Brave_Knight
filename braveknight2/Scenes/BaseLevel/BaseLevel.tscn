@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bu82vt6e2yccr"]
+[gd_scene load_steps=12 format=4 uid="uid://bu82vt6e2yccr"]
 
 [ext_resource type="PackedScene" uid="uid://bna4otrsp1jn8" path="res://Scenes/Background/Background.tscn" id="1_3ok8t"]
 [ext_resource type="PackedScene" uid="uid://bwwmacs6k1qpn" path="res://Scenes/Player/player.tscn" id="1_4ea85"]
@@ -502,6 +502,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_1wu10")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4tuel"]
+radius = 148.165
+
 [node name="BaseLevel" type="Node2D"]
 metadata/_edit_vertical_guides_ = [8162.0]
 
@@ -622,3 +625,10 @@ scale = Vector2(2.1, 2.1)
 movement_speed = 3000
 
 [node name="Hud" parent="." instance=ExtResource("7_4tuel")]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(13562, 310)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_4tuel")

@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dce7fb14idi2v"]
 
-[ext_resource type="FontFile" uid="uid://bq7ema65ugnoc" path="res://assets/fonts/AlbertText-Bold.ttf" id="1_p1hfs"]
+[ext_resource type="FontFile" uid="uid://bq7ema65ugnoc" path="res://Assets/fonts/AlbertText-Bold.ttf" id="1_p1hfs"]
 
 [resource]
 font = ExtResource("1_p1hfs")

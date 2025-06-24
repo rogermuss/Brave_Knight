@@ -11,9 +11,14 @@ func _ready():
 	
 func on_game_start():
 	get_tree().change_scene_to_packed(game_escene)
-	
+
 func on_return_to_menu():
 	get_tree().change_scene_to_packed(menu_scene)
+
+var end_scene = preload("res://Scenes/EndScreen/End_Screen.tscn")
+func on_end():
+	get_tree().change_scene_to_packed(end_scene)
+
 
 func lower_hp():
 	hp -= 1
