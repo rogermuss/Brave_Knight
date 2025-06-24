@@ -17,6 +17,7 @@ var current_state : PLAYER_STATE = PLAYER_STATE.IDLE
 var is_grounded = false
 var is_attacking = false
 var direction: Vector2 
+var hp : int = 3
 
 var hit_speed: float = 500.0
 
@@ -76,6 +77,8 @@ func set_state(new_state: PLAYER_STATE):
 				anim_sprite2d.play("Attack")
 			PLAYER_STATE.HIT:
 				anim_sprite2d.play("Hit")
+			PLAYER_STATE.DEATH:
+				anim_sprite2d.play("Death")
 
 func flip_player():
 	anim_sprite2d.flip_h = not anim_sprite2d.flip_h
@@ -83,6 +86,8 @@ func flip_player():
 
 func get_input(delta): 
 	if current_state == PLAYER_STATE.HIT:
+		return
+	if current_state == PLAYER_STATE.DEATH:
 		return
 	if(Input.is_action_pressed("move_left")):
 		velocity.x = -movement_speed * delta
@@ -119,9 +124,16 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func get_hit(source_velocity: Vector2):
 	if current_state == PLAYER_STATE.HIT:
 		return
+	if current_state == PLAYER_STATE.DEATH:
+		return
 	direction = source_velocity.normalized()
 	velocity = direction * hit_speed
 	set_state(PLAYER_STATE.HIT)
+	GameManager.lower_hp()
+	if hp <= 0:
+		set_state(PLAYER_STATE.DEATH)
+		print("you're dead")
+		return
 	invincible_timer.start()
 	var tween = create_tween()
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,1,1,0),0.25)

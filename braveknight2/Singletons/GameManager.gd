@@ -1,5 +1,5 @@
 extends Node
-var score = 0
+var hp = 3
 var game_over = false
 var game_escene = preload("res://Scenes/BaseLevel/BaseLevel.tscn")
 var menu_scene = preload("res://scenes/main_menu/Menu.tscn")
@@ -13,7 +13,15 @@ func on_game_start():
 	
 func on_return_to_menu():
 	get_tree().change_scene_to_packed(menu_scene)
-	
+
+func lower_hp():
+	hp -= 1
+	SignalManager.on_health_update.emit(hp)
+
+func reset_hp():
+	hp = 3
+	SignalManager.on_health_update.emit(hp)
+
 func on_exit():
 	get_tree().quit()
 	

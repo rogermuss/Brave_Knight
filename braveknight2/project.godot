@@ -21,6 +21,7 @@ config/icon="uid://dbpqsh5cnx26g"
 
 GameManager="*res://Singletons/GameManager.gd"
 ObjectMaker="*res://Singletons/ObjectMaker.gd"
+SignalManager="*res://Singletons/SignalManager.gd"
 
 [display]
 

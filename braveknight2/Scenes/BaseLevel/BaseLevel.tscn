@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bu82vt6e2yccr"]
+[gd_scene load_steps=11 format=4 uid="uid://bu82vt6e2yccr"]
 
 [ext_resource type="PackedScene" uid="uid://bna4otrsp1jn8" path="res://Scenes/Background/Background.tscn" id="1_3ok8t"]
 [ext_resource type="PackedScene" uid="uid://bwwmacs6k1qpn" path="res://Scenes/Player/player.tscn" id="1_4ea85"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdnvoy0vmsr76" path="res://Scenes/Bat/bat.tscn" id="3_1wu10"]
 [ext_resource type="AudioStream" uid="uid://dy7n33ldb6qxi" path="res://Assets/Background/Super Mario Brothers 1 Music - Main Theme & Overworld.mp3" id="5_e4llg"]
 [ext_resource type="PackedScene" uid="uid://bechy2ph5uiyn" path="res://Scenes/Goblin/Goblin.tscn" id="6_n1wa4"]
+[ext_resource type="PackedScene" uid="uid://dqv3lgfvlc0vg" path="res://HUD/Hud.tscn" id="7_4tuel"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1wu10"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 4, 513, 12289, 536, 12272, 14)])
@@ -610,3 +611,5 @@ movement_speed = 3000
 position = Vector2(11344, 314)
 scale = Vector2(2.1, 2.1)
 movement_speed = 3000
+
+[node name="Hud" parent="." instance=ExtResource("7_4tuel")]
